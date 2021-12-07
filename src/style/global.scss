@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  color: #273742;
+  font-size: 15px;
+  margin: 0;
+}
+
+.Page.edition {
+  .EText,
+  .EElement,
+  .EButton {
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border: 2px dashed #273742;
+      pointer-events: none;
+      border-radius: inherit;
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      animation: fadeIn 500ms;
+    }
+  }
+}

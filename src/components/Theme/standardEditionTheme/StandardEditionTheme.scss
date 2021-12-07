@@ -1,0 +1,207 @@
+.PageEditionComponent {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px;
+}
+
+.SectionEditionComponent {
+  opacity: 0;
+  .topbar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 20px 0;
+  }
+
+  .add-before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -15px;
+    z-index: 10;
+
+    &::after {
+      content: '';
+      height: 1px;
+      background-color: rgba(#273742, 0.3);
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 15px;
+    }
+  }
+
+  .add-after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -16px;
+    z-index: 10;
+
+    &::after {
+      content: '';
+      height: 1px;
+      background-color: rgba(#273742, 0.3);
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 15px;
+    }
+  }
+
+  .add-before,
+  .add-after {
+    display: flex;
+    justify-content: center;
+
+    button {
+      height: 31px;
+      width: 31px;
+      border-radius: 31px;
+      min-width: unset;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .Menu {
+    position: relative;
+
+    & > button {
+      margin-right: 0;
+    }
+
+    & > .dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      padding: 10px;
+      z-index: 10;
+      background-color: white;
+      right: 0;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(#273742, 0.1);
+    }
+  }
+}
+
+section:hover > .SectionEditionComponent {
+  opacity: 1;
+}
+
+.SectionEditionComponent,
+.PageEditionComponent {
+  button {
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border: 1px solid rgba(#273742, 0.2);
+    background-color: white;
+    color: rgba(#273742, 0.7);
+    box-shadow: 0 0 16px rgba(#273742, 0.1);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 12px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 250ms, border-color 250ms;
+
+    &:hover {
+      color: #273742;
+      border-color: rgba(#273742, 0.4);
+    }
+  }
+}
+
+.AddSectionModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  z-index: 1000;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  animation: fadeIn 400ms;
+
+  & > button.close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    border: 0;
+    background-color: white;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    color: #273742;
+    opacity: 0.7;
+    transition: opacity 250ms;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  & > .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(#273742, 0.8);
+  }
+
+  & > .box {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    border-radius: 4px;
+    width: 400px;
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      button {
+        padding: 20px;
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid rgba(#273742, 0.2);
+        border-radius: 4px;
+        transition: background-color 300ms;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: #f4f5fd;
+        }
+      }
+    }
+  }
+}
