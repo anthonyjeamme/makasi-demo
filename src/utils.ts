@@ -32,21 +32,7 @@ export const LocalstorageConnector: TConnectorFactory = (id: string) => {
 }
 
 export const getData = () => {
-  if (!isBrowser())
-    return {
-      metadata: {
-        title: '',
-        description: ''
-      },
-      sections: [
-        {
-          id: 'A',
-          type: 'header',
-          params: {},
-          data: {}
-        }
-      ]
-    }
+  if (!isBrowser()) return standardPageSchema.defaultData
 
   const cached = localStorage.getItem('page')
 
@@ -54,34 +40,68 @@ export const getData = () => {
     return JSON.parse(cached)
   }
 
-  return {
-    metadata: {
-      title: '',
-      description: ''
-    },
-    sections: [
-      {
-        id: 'A',
-        type: 'header',
-        params: {},
-        data: {}
-      }
-    ]
-  }
+  return standardPageSchema.defaultData
 }
 
 export const standardPageSchema: TPageSchema = {
   defaultData: {
-    metadata: {
-      title: 'hello world',
-      description: 'description'
-    },
+    metadata: { title: 'Makasi', description: 'Build Powerful Editable Apps' },
     sections: [
       {
         id: 'A',
         type: 'header',
-        data: {},
-        params: {}
+        data: {
+          titre: 'Build Powerful Editable Apps',
+          text: {
+            blocks: [
+              {
+                key: '3hdos',
+                text: 'We manage page edition, you build amazing features',
+                type: 'unstyled',
+                depth: 0,
+                inlineStyleRanges: [],
+                entityRanges: [],
+                data: {}
+              },
+              {
+                key: 'cv2qr',
+                text: 'and your client write great content !',
+                type: 'unstyled',
+                depth: 0,
+                inlineStyleRanges: [],
+                entityRanges: [],
+                data: {}
+              }
+            ],
+            entityMap: {}
+          },
+          soustitre: 'Il est super beau',
+          button: 'This page is made with it ! Click to try'
+        },
+        params: { backgroundColor: '#f4f5fd' }
+      },
+      {
+        id: 'kwvgjek0',
+        type: 'header',
+        params: {},
+        data: {
+          titre: 'The best of every worlds',
+          text: {
+            blocks: [
+              {
+                key: '7nse6',
+                text: 'Wysiwyg for your client, your keep control on your design and structure, power of React, toolkit to help developers make editable apps easily.',
+                type: 'unstyled',
+                depth: 0,
+                inlineStyleRanges: [],
+                entityRanges: [],
+                data: {}
+              }
+            ],
+            entityMap: {}
+          },
+          button: 'Click here to try !'
+        }
       }
     ]
   },
