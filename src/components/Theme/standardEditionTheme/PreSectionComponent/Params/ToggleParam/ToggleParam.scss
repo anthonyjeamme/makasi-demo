@@ -1,0 +1,20 @@
+.ToggleParam {
+  .checkbox {
+    height: 26px;
+    width: 26px;
+    border-radius: 4px;
+    background-color: #f4f5fd;
+    border: 1px solid rgba(#273742, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 20px;
+    transition: color 250ms;
+
+    &.active {
+      color: #273742;
+    }
+  }
+}

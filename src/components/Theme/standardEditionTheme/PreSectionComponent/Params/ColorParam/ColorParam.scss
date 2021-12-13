@@ -1,0 +1,42 @@
+.ColorParam {
+  .color-circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin-right: 8px;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 30px;
+      transition: opacity 400ms;
+      opacity: 0;
+    }
+
+    &::before {
+      border: 3px solid white;
+    }
+    &::after {
+      border: 2px solid #273742;
+    }
+
+    &.active {
+      &::before {
+        opacity: 1;
+      }
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

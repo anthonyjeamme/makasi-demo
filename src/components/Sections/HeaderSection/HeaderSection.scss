@@ -1,10 +1,25 @@
 .HeaderSection {
   overflow: hidden;
+  transition: background-color 400ms, color 400ms;
+
   .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 100px 0;
+    padding: 50px 0;
     position: relative;
+    transition: padding 400ms;
+  }
+
+  &.margin-big {
+    .container {
+      padding: 100px 0;
+    }
+  }
+
+  &.margin-small {
+    .container {
+      padding: 20px 0;
+    }
   }
 
   .illustration {

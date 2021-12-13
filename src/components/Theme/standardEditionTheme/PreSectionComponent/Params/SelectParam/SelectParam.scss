@@ -1,0 +1,32 @@
+.SelectParam {
+  display: flex;
+
+  & > button {
+    box-shadow: none !important;
+    font-size: 15px !important;
+    margin: 0 !important;
+    padding: 0 6px !important;
+
+    border-radius: 0 !important;
+    flex: 1;
+
+    &.active {
+      background-color: #273742;
+      color: white;
+    }
+
+    &:nth-child(1) {
+      border-top-left-radius: 4px !important;
+      border-bottom-left-radius: 4px !important;
+    }
+
+    &:nth-last-child(1) {
+      border-top-right-radius: 4px !important;
+      border-bottom-right-radius: 4px !important;
+    }
+
+    &:not(:nth-last-child(1)) {
+      border-right: 0 !important;
+    }
+  }
+}
